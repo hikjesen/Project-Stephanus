@@ -11,9 +11,9 @@ service = Service()
 READ_ONLY = ToolAnnotations(readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=False)
 
 @mcp.tool(annotations=READ_ONLY, structured_output=True)
-def stephanus_list_sources() -> dict[str, Any]:
+def stephanus_list_sources(include_resources: bool = False) -> dict[str, Any]:
     """List local resources, connected backends, indexed languages and output targets."""
-    return service.list_sources()
+    return service.list_sources(include_resources)
 
 @mcp.tool(annotations=READ_ONLY, structured_output=True)
 def stephanus_search_names(query: str, language: str | None = None, category: str | None = None, source: str | None = None, mode: str = "auto", limit: int = 20, offset: int = 0) -> dict[str, Any]:
@@ -32,7 +32,7 @@ def stephanus_find_related_names(identifier: str, relation: str | None = None, l
 
 @mcp.tool(annotations=READ_ONLY, structured_output=True)
 def stephanus_get_entry(identifier: str) -> dict[str, Any]:
-    """Retrieve a complete record with original fields and supplementary source data."""
+    """Retrieve compact senses, etymology, forms, lemma links, historical notes and provenance. Source articles and raw JSON are not retained."""
     return service.get_entry(identifier) or {}
 
 @mcp.tool(annotations=READ_ONLY, structured_output=True)

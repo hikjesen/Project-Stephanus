@@ -90,9 +90,14 @@ def acquire(item):
     try:
         if item["method"] == "git":
             destination.parent.mkdir(parents=True, exist_ok=True)
-            p = subprocess.run(["git", "-c", "core.longpaths=true", "clone", "--depth", "1", "--single-branch", item["url"], str(destination)], capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=600)
-            if p.returncode:
-                raise RuntimeError(p.stderr[-1200:])
+            if destination.exists() and item.get("restore_subset"):
+                commands = [["git", "init", str(destination)], ["git", "-C", str(destination), "remote", "add", "origin", item["url"]], ["git", "-C", str(destination), "fetch", "--depth", "1", "origin", item.get("revision") or "HEAD"], ["git", "-C", str(destination), "checkout", "--force", "--detach", "FETCH_HEAD"]]
+            else:
+                commands = [["git", "-c", "core.longpaths=true", "clone", "--depth", "1", "--single-branch", item["url"], str(destination)]]
+            for command in commands:
+                p = subprocess.run(command, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=600)
+                if p.returncode:
+                    raise RuntimeError(p.stderr[-1200:])
         else:
             download(item["url"], destination)
             if item.get("extract") or destination.name.endswith(".json.tgz"):
@@ -152,7 +157,7 @@ def data_items():
     items.append(record("kaikki-extract", "data", "https://kaikki.org/dictionary/raw-wiktextract-data.jsonl.gz", DATA / "raw" / "kaikki" / "raw-wiktextract-data.jsonl.gz", "Compressed Wiktextract source; import Japanese and Latin only", ["ja", "la"]))
     return items
 
-def fetch(group="all", only=None, workers=4):
+def fetch(group="all", only=None, workers=4, include_pruned=False):
     previous = {r["id"]: r for r in read_manifest()}
     items = []
     if group in ("all", "sources"):
@@ -162,22 +167,32 @@ def fetch(group="all", only=None, workers=4):
     if group in ("all", "data"):
         recorded = [dict(row) for row in previous.values() if row["group"] == "data"]
         items.extend(recorded or data_items())
+    if only and only in previous and not any(item["id"] == only for item in items):
+        items.append(dict(previous[only]))
     queue = []
     queued_paths = set()
     for item in items:
         if only and item["id"] != only:
             continue
         old = previous.get(item["id"])
+        if old and old.get("storage_state") == "pruned" and not only and not include_pruned:
+            continue
         if old and old["status"] == "unavailable" and not only:
             alternative = previous.get(old.get("resolved_by"))
             if not alternative:
                 continue
             item, old = dict(alternative), alternative
-        if old and old["status"] == "acquired" and (ROOT / old["local_path"]).exists():
+        if old and old.get("storage_state") == "pruned" and not only and not include_pruned:
             continue
+        restoring_subset = old and old.get("storage_state") == "runtime_subset" and (only or include_pruned)
+        if old and old["status"] == "acquired" and (ROOT / old["local_path"]).exists() and not restoring_subset:
+            continue
+        if restoring_subset:
+            item.update(restore_subset=True, revision=old.get("revision"))
         if item["local_path"] in queued_paths:
             continue
         item["status"] = "pending" if item["status"] != "unavailable" or only or old else "unavailable"
+        item.pop("storage_state", None)
         previous[item["id"]] = item
         if item["status"] == "pending":
             queue.append(item)
@@ -197,5 +212,6 @@ if __name__ == "__main__":
     parser.add_argument("--group", choices=["all", "sources", "data", "references"], default="all")
     parser.add_argument("--only")
     parser.add_argument("--workers", type=int, default=4)
+    parser.add_argument("--include-pruned", action="store_true")
     args = parser.parse_args()
-    fetch(args.group, args.only, args.workers)
+    fetch(args.group, args.only, args.workers, args.include_pruned)

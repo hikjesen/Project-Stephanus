@@ -10,8 +10,8 @@ import sys
 
 import ijson
 
-from .database import Writer, connect, initialize
-from .paths import DATA, VENDOR
+from .legacy_database import Writer, connect, initialize
+from .paths import DATA, VENDOR, DATABASE, ROOT
 
 def json_items(pattern, prefix):
     path = next((DATA / "raw" / "jmdict-simplified").glob(pattern), None)
@@ -123,7 +123,7 @@ def kaikki(w):
 
 IMPORTERS = {"jmnedict": jmnedict, "jmdict": jmdict, "kanjidic2": kanjidic, "medieval-names": medieval, "onomaverse": onomaverse, "latin-proper-names": cltk, "kaikki": kaikki}
 
-def import_data(source=None):
+def import_legacy(source=None):
     summary = []
     with connect(write=True) as c:
         initialize(c)
@@ -149,3 +149,17 @@ def import_data(source=None):
             report_path.write_text(json.dumps(previous, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
             print(json.dumps(result, ensure_ascii=False), file=sys.stderr, flush=True)
     return summary
+
+def import_data(source=None):
+    """Reuse an installed compact database, or build it from explicitly restored inputs."""
+    if DATABASE.exists():
+        import sqlite3
+        with sqlite3.connect(DATABASE.as_uri() + "?mode=ro", uri=True) as c:
+            return [{"source": row[0], "entries": row[1], "status": "indexed"}
+                    for row in c.execute("SELECT source,entries FROM imports") if source is None or row[0] == source]
+    summary = import_legacy(source)
+    from .compact import build
+    result = build(DATA / "build-input.sqlite", DATABASE, ROOT)
+    for suffix in ("", "-wal", "-shm"):
+        (DATA / ("build-input.sqlite" + suffix)).unlink(missing_ok=True)
+    return {"imports": summary, "compact": result}

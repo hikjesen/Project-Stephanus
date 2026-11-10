@@ -10,7 +10,10 @@
     ],
     "method": "git",
     "status": "acquired",
-    "acquired_at": "2026-11-10T02:55:58.900885+00:00"
+    "acquired_at": "2026-11-10T10:55:58.900885+08:00",
+    "revision": "2da53682ed6b17d1505ac48cc092fd9b01246196",
+    "storage_state": "pruned",
+    "storage_policy": "compact-v1"
   },
   {
     "id": "repo-jinmei-dict",
@@ -23,7 +26,10 @@
     ],
     "method": "git",
     "status": "acquired",
-    "acquired_at": "2026-11-10T02:56:48.287818+00:00"
+    "acquired_at": "2026-11-10T10:56:48.287818+08:00",
+    "revision": "5642a7e715dd4fd5143538b43331d0db5ea755f9",
+    "storage_state": "runtime_subset",
+    "storage_policy": "compact-v1"
   },
   {
     "id": "repo-japanese-personal-name-dataset",
@@ -36,7 +42,10 @@
     ],
     "method": "git",
     "status": "acquired",
-    "acquired_at": "2026-11-10T02:56:01.978557+00:00"
+    "acquired_at": "2026-11-10T10:56:01.978557+08:00",
+    "revision": "53251b4207d107fc81a29cd333573d9d1e39ec57",
+    "storage_state": "pruned",
+    "storage_policy": "compact-v1"
   },
   {
     "id": "repo-japanesenames",
@@ -49,7 +58,10 @@
     ],
     "method": "git",
     "status": "acquired",
-    "acquired_at": "2026-11-10T02:55:56.885749+00:00"
+    "acquired_at": "2026-11-10T10:55:56.885749+08:00",
+    "revision": "f853cff2ce4f30701a51c270a4eed032d6e63687",
+    "storage_state": "pruned",
+    "storage_policy": "compact-v1"
   },
   {
     "id": "repo-nihongo-mono",
@@ -62,7 +74,10 @@
     ],
     "method": "git",
     "status": "acquired",
-    "acquired_at": "2026-11-10T02:56:49.232990+00:00"
+    "acquired_at": "2026-11-10T10:56:49.23299+08:00",
+    "revision": "ec0ba4a0ce1611c568b0e4f8a223eb8029249a25",
+    "storage_state": "pruned",
+    "storage_policy": "compact-v1"
   },
   {
     "id": "repo-yomikun-app",
@@ -75,7 +90,10 @@
     ],
     "method": "git",
     "status": "acquired",
-    "acquired_at": "2026-11-10T02:56:01.701989+00:00"
+    "acquired_at": "2026-11-10T10:56:01.701989+08:00",
+    "revision": "de451d722dd4dbc0e9b87c8caab7ab976ee46ad8",
+    "storage_state": "pruned",
+    "storage_policy": "compact-v1"
   },
   {
     "id": "repo-python-romkan",
@@ -88,7 +106,10 @@
     ],
     "method": "git",
     "status": "acquired",
-    "acquired_at": "2026-11-10T02:55:58.801890+00:00"
+    "acquired_at": "2026-11-10T10:55:58.80189+08:00",
+    "revision": "c82dc16f1154794fab765cceb2c036d20251717d",
+    "storage_state": "runtime_subset",
+    "storage_policy": "compact-v1"
   },
   {
     "id": "repo-kuroshiro",
@@ -101,7 +122,10 @@
     ],
     "method": "git",
     "status": "acquired",
-    "acquired_at": "2026-11-10T02:56:01.398599+00:00"
+    "acquired_at": "2026-11-10T10:56:01.398599+08:00",
+    "revision": "ca6376189aad40ca44ae8087cdb89684be88d4d4",
+    "storage_state": "pruned",
+    "storage_policy": "compact-v1"
   },
   {
     "id": "repo-wanakana",
@@ -114,7 +138,10 @@
     ],
     "method": "git",
     "status": "acquired",
-    "acquired_at": "2026-11-10T02:56:02.154025+00:00"
+    "acquired_at": "2026-11-10T10:56:02.154025+08:00",
+    "revision": "63a00b513979ccc96b530da2f3efb677361d573c",
+    "storage_state": "pruned",
+    "storage_policy": "compact-v1"
   },
   {
     "id": "repo-kuroshiro-analyzer-kuromoji",
@@ -127,7 +154,10 @@
     ],
     "method": "git",
     "status": "acquired",
-    "acquired_at": "2026-11-10T02:56:03.204089+00:00"
+    "acquired_at": "2026-11-10T10:56:03.204089+08:00",
+    "revision": "ef7d71423b22686adbc68015e5e6a5002be12936",
+    "storage_state": "pruned",
+    "storage_policy": "compact-v1"
   },
   {
     "id": "repo-verba",
@@ -141,7 +171,10 @@
     ],
     "method": "git",
     "status": "acquired",
-    "acquired_at": "2026-11-10T02:56:10.736982+00:00"
+    "acquired_at": "2026-11-10T10:56:10.736982+08:00",
+    "revision": "53080fe167bc0e7886a21c3cdf34b1dbd4dcb055",
+    "storage_state": "runtime_subset",
+    "storage_policy": "compact-v1"
   },
   {
     "id": "repo-smith-hall",
@@ -155,7 +188,10 @@
     ],
     "method": "git",
     "status": "acquired",
-    "acquired_at": "2026-11-10T02:56:17.890438+00:00"
+    "acquired_at": "2026-11-10T10:56:17.890438+08:00",
+    "revision": "23e9f8e26e7de55ecd251f03c61d7a320255b2af",
+    "storage_state": "pruned",
+    "storage_policy": "compact-v1"
   },
   {
     "id": "repo-perseus-lexica",
@@ -169,7 +205,10 @@
     ],
     "method": "git",
     "status": "acquired",
-    "acquired_at": "2026-11-10T02:57:06.724371+00:00"
+    "acquired_at": "2026-11-10T10:57:06.724371+08:00",
+    "revision": "1c34cdf756c63cf37db61bd366d733431dbd7aa0",
+    "storage_state": "pruned",
+    "storage_policy": "compact-v1"
   },
   {
     "id": "repo-whitakers-words",
@@ -182,7 +221,10 @@
     ],
     "method": "git",
     "status": "acquired",
-    "acquired_at": "2026-11-10T02:56:08.555910+00:00"
+    "acquired_at": "2026-11-10T10:56:08.55591+08:00",
+    "revision": "fb7fb6f04c0c05b68d496a521d8c32abe823e57b",
+    "storage_state": "pruned",
+    "storage_policy": "compact-v1"
   },
   {
     "id": "repo-collatinus",
@@ -195,7 +237,10 @@
     ],
     "method": "git",
     "status": "acquired",
-    "acquired_at": "2026-11-10T02:56:15.225172+00:00"
+    "acquired_at": "2026-11-10T10:56:15.225172+08:00",
+    "revision": "ddee9f587e20d313c28d9b729450994805169c1d",
+    "storage_state": "pruned",
+    "storage_policy": "compact-v1"
   },
   {
     "id": "repo-latin-proper-names",
@@ -208,7 +253,10 @@
     ],
     "method": "git",
     "status": "acquired",
-    "acquired_at": "2026-11-10T02:56:12.817282+00:00"
+    "acquired_at": "2026-11-10T10:56:12.817282+08:00",
+    "revision": "771c9fb50c82e73a2287499905a8a8577643b2ce",
+    "storage_state": "pruned",
+    "storage_policy": "compact-v1"
   },
   {
     "id": "repo-onomaverse",
@@ -221,7 +269,10 @@
     ],
     "method": "git",
     "status": "acquired",
-    "acquired_at": "2026-11-10T02:56:15.075173+00:00"
+    "acquired_at": "2026-11-10T10:56:15.075173+08:00",
+    "revision": "1ef6f028e866b1ead234611a6c7f180b663f74bc",
+    "storage_state": "pruned",
+    "storage_policy": "compact-v1"
   },
   {
     "id": "repo-medieval-names",
@@ -234,7 +285,10 @@
     ],
     "method": "git",
     "status": "acquired",
-    "acquired_at": "2026-11-10T02:56:25.709525+00:00"
+    "acquired_at": "2026-11-10T10:56:25.709525+08:00",
+    "revision": "eb65b88ef131da25ce0af2de27a57a0d8fe585db",
+    "storage_state": "pruned",
+    "storage_policy": "compact-v1"
   },
   {
     "id": "repo-wiktextract",
@@ -247,7 +301,10 @@
     ],
     "method": "git",
     "status": "acquired",
-    "acquired_at": "2026-11-10T02:56:25.981605+00:00"
+    "acquired_at": "2026-11-10T10:56:25.981605+08:00",
+    "revision": "eaa43ad653022c3969e9e94c03b4bd5f1a8e3cf2",
+    "storage_state": "pruned",
+    "storage_policy": "compact-v1"
   },
   {
     "id": "repo-mcp-python-sdk",
@@ -258,7 +315,10 @@
     "languages": [],
     "method": "git",
     "status": "acquired",
-    "acquired_at": "2026-11-10T02:56:31.977983+00:00"
+    "acquired_at": "2026-11-10T10:56:31.977983+08:00",
+    "revision": "77001c96f9507be0f4d009b83210a384a5e08bda",
+    "storage_state": "pruned",
+    "storage_policy": "compact-v1"
   },
   {
     "id": "ninjal-romanization",
@@ -269,7 +329,7 @@
     "languages": [],
     "method": "download",
     "status": "acquired",
-    "acquired_at": "2026-11-10T02:56:26.815330+00:00"
+    "acquired_at": "2026-11-10T10:56:26.81533+08:00"
   },
   {
     "id": "found-in-transliteration",
@@ -281,7 +341,7 @@
     "method": "download",
     "status": "unavailable",
     "error": "HTTP Error 503: Service Temporarily Unavailable",
-    "acquired_at": "2026-11-10T02:56:27.198692+00:00",
+    "acquired_at": "2026-11-10T10:56:27.198692+08:00",
     "resolved_by": "found-in-transliteration-jstage"
   },
   {
@@ -293,7 +353,7 @@
     "languages": [],
     "method": "download",
     "status": "acquired",
-    "acquired_at": "2026-11-10T02:56:31.866592+00:00"
+    "acquired_at": "2026-11-10T10:56:31.866592+08:00"
   },
   {
     "id": "nippo-jisho",
@@ -304,7 +364,7 @@
     "languages": [],
     "method": "download",
     "status": "acquired",
-    "acquired_at": "2026-11-10T02:56:28.869341+00:00"
+    "acquired_at": "2026-11-10T10:56:28.869341+08:00"
   },
   {
     "id": "ontolex",
@@ -315,7 +375,7 @@
     "languages": [],
     "method": "download",
     "status": "acquired",
-    "acquired_at": "2026-11-10T02:56:30.771292+00:00"
+    "acquired_at": "2026-11-10T10:56:30.771292+08:00"
   },
   {
     "id": "tei-dictionaries",
@@ -327,7 +387,7 @@
     "method": "download",
     "status": "unavailable",
     "error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)>",
-    "acquired_at": "2026-11-10T02:56:41.522984+00:00",
+    "acquired_at": "2026-11-10T10:56:41.522984+08:00",
     "resolved_by": "tei-source-xml"
   },
   {
@@ -339,7 +399,7 @@
     "languages": [],
     "method": "download",
     "status": "acquired",
-    "acquired_at": "2026-11-10T02:56:35.385427+00:00"
+    "acquired_at": "2026-11-10T10:56:35.385427+08:00"
   },
   {
     "id": "dmnes-guide",
@@ -350,7 +410,7 @@
     "languages": [],
     "method": "download",
     "status": "acquired",
-    "acquired_at": "2026-11-10T02:56:34.484686+00:00"
+    "acquired_at": "2026-11-10T10:56:34.484686+08:00"
   },
   {
     "id": "behind-the-name",
@@ -361,7 +421,7 @@
     "languages": [],
     "method": "download",
     "status": "acquired",
-    "acquired_at": "2026-11-10T02:56:36.726536+00:00"
+    "acquired_at": "2026-11-10T10:56:36.726536+08:00"
   },
   {
     "id": "behind-the-name-download",
@@ -372,7 +432,7 @@
     "languages": [],
     "method": "download",
     "status": "acquired",
-    "acquired_at": "2026-11-10T02:56:36.757818+00:00"
+    "acquired_at": "2026-11-10T10:56:36.757818+08:00"
   },
   {
     "id": "morgan-owens",
@@ -383,7 +443,7 @@
     "languages": [],
     "method": "download",
     "status": "acquired",
-    "acquired_at": "2026-11-10T02:56:41.363311+00:00"
+    "acquired_at": "2026-11-10T10:56:41.363311+08:00"
   },
   {
     "id": "kaikki-downloads",
@@ -394,7 +454,7 @@
     "languages": [],
     "method": "download",
     "status": "acquired",
-    "acquired_at": "2026-11-10T02:56:39.118355+00:00"
+    "acquired_at": "2026-11-10T10:56:39.118355+08:00"
   },
   {
     "id": "jmnedict-xml",
@@ -408,8 +468,10 @@
     "method": "download",
     "status": "unavailable",
     "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'ftp.edrdg.org'. (_ssl.c:1000)>",
-    "acquired_at": "2026-11-10T02:56:40.292560+00:00",
-    "resolved_by": "jmnedict-xml-http"
+    "acquired_at": "2026-11-10T10:56:40.29256+08:00",
+    "resolved_by": "jmnedict-xml-http",
+    "storage_state": "pruned",
+    "storage_policy": "compact-v1"
   },
   {
     "id": "jmdict-xml",
@@ -423,8 +485,10 @@
     "method": "download",
     "status": "unavailable",
     "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'ftp.edrdg.org'. (_ssl.c:1000)>",
-    "acquired_at": "2026-11-10T02:56:41.087913+00:00",
-    "resolved_by": "jmdict-xml-http"
+    "acquired_at": "2026-11-10T10:56:41.087913+08:00",
+    "resolved_by": "jmdict-xml-http",
+    "storage_state": "pruned",
+    "storage_policy": "compact-v1"
   },
   {
     "id": "kanjidic2-xml",
@@ -437,7 +501,9 @@
     ],
     "method": "download",
     "status": "acquired",
-    "acquired_at": "2026-11-10T02:56:52.863227+00:00"
+    "acquired_at": "2026-11-10T10:56:52.863227+08:00",
+    "storage_state": "pruned",
+    "storage_policy": "compact-v1"
   },
   {
     "id": "jmdict-simplified/jmdict-all-3.6.2+20261109214828.json.zip",
@@ -453,8 +519,10 @@
     "version": "3.6.2+20261109214828",
     "extract": true,
     "error": "<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>",
-    "acquired_at": "2026-11-10T02:57:02.408987+00:00",
-    "resolved_by": "jmdict-full-alternative"
+    "acquired_at": "2026-11-10T10:57:02.408987+08:00",
+    "resolved_by": "jmdict-full-alternative",
+    "storage_state": "pruned",
+    "storage_policy": "compact-v1"
   },
   {
     "id": "jmdict-simplified/jmnedict-all-3.6.2+20261109214828.json.zip",
@@ -469,7 +537,9 @@
     "status": "acquired",
     "version": "3.6.2+20261109214828",
     "extract": true,
-    "acquired_at": "2026-11-10T02:57:02.800566+00:00"
+    "acquired_at": "2026-11-10T10:57:02.800566+08:00",
+    "storage_state": "pruned",
+    "storage_policy": "compact-v1"
   },
   {
     "id": "jmdict-simplified/kanjidic2-all-3.6.2+20261109214828.json.zip",
@@ -484,7 +554,9 @@
     "status": "acquired",
     "version": "3.6.2+20261109214828",
     "extract": true,
-    "acquired_at": "2026-11-10T02:56:51.962591+00:00"
+    "acquired_at": "2026-11-10T10:56:51.962591+08:00",
+    "storage_state": "pruned",
+    "storage_policy": "compact-v1"
   },
   {
     "id": "japanese-personal-name-dataset/japanese_names.sqlite",
@@ -499,7 +571,9 @@
     "status": "acquired",
     "version": "v0.5.0",
     "extract": false,
-    "acquired_at": "2026-11-10T02:57:03.721241+00:00"
+    "acquired_at": "2026-11-10T10:57:03.721241+08:00",
+    "storage_state": "present",
+    "storage_policy": "compact-v1"
   },
   {
     "id": "onomaverse-release",
@@ -511,7 +585,9 @@
     "method": "download",
     "status": "unavailable",
     "error": "HTTP Error 403: rate limit exceeded",
-    "resolved_by": "onomaverse/name-equivalence.csv"
+    "resolved_by": "onomaverse/name-equivalence.csv",
+    "storage_state": "pruned",
+    "storage_policy": "compact-v1"
   },
   {
     "id": "kaikki-extract",
@@ -525,7 +601,9 @@
     ],
     "method": "aria2",
     "status": "acquired",
-    "acquired_at": "2026-11-10T03:23:31.234278+00:00"
+    "acquired_at": "2026-11-10T11:23:31.234278+08:00",
+    "storage_state": "pruned",
+    "storage_policy": "compact-v1"
   },
   {
     "id": "onomaverse/name-gender-inference.csv",
@@ -539,7 +617,9 @@
     "method": "download",
     "status": "acquired",
     "version": "v2026.10",
-    "acquired_at": "2026-11-10T03:04:39.697327+00:00"
+    "acquired_at": "2026-11-10T11:04:39.697327+08:00",
+    "storage_state": "pruned",
+    "storage_policy": "compact-v1"
   },
   {
     "id": "onomaverse/surname-frequency.csv",
@@ -553,7 +633,9 @@
     "method": "download",
     "status": "acquired",
     "version": "v2026.10",
-    "acquired_at": "2026-11-10T03:04:40.087907+00:00"
+    "acquired_at": "2026-11-10T11:04:40.087907+08:00",
+    "storage_state": "pruned",
+    "storage_policy": "compact-v1"
   },
   {
     "id": "onomaverse/given-name-frequency.csv",
@@ -567,7 +649,9 @@
     "method": "download",
     "status": "acquired",
     "version": "v2026.10",
-    "acquired_at": "2026-11-10T03:04:41.312209+00:00"
+    "acquired_at": "2026-11-10T11:04:41.312209+08:00",
+    "storage_state": "pruned",
+    "storage_policy": "compact-v1"
   },
   {
     "id": "onomaverse/name-days.csv",
@@ -581,7 +665,9 @@
     "method": "download",
     "status": "acquired",
     "version": "v2026.10",
-    "acquired_at": "2026-11-10T03:04:41.594081+00:00"
+    "acquired_at": "2026-11-10T11:04:41.594081+08:00",
+    "storage_state": "pruned",
+    "storage_policy": "compact-v1"
   },
   {
     "id": "onomaverse/name-equivalence.csv",
@@ -595,7 +681,9 @@
     "method": "download",
     "status": "acquired",
     "version": "v2026.10",
-    "acquired_at": "2026-11-10T03:04:41.808221+00:00"
+    "acquired_at": "2026-11-10T11:04:41.808221+08:00",
+    "storage_state": "pruned",
+    "storage_policy": "compact-v1"
   },
   {
     "id": "onomaverse/popular-names-by-country-2026.csv",
@@ -609,7 +697,9 @@
     "method": "download",
     "status": "acquired",
     "version": "v2026.10",
-    "acquired_at": "2026-11-10T03:04:42.257704+00:00"
+    "acquired_at": "2026-11-10T11:04:42.257704+08:00",
+    "storage_state": "pruned",
+    "storage_policy": "compact-v1"
   },
   {
     "id": "found-in-transliteration-jstage",
@@ -620,7 +710,7 @@
     "languages": [],
     "method": "download",
     "status": "acquired",
-    "acquired_at": "2026-11-10T03:04:46.040512+00:00"
+    "acquired_at": "2026-11-10T11:04:46.040512+08:00"
   },
   {
     "id": "jmnedict-xml-http",
@@ -631,7 +721,9 @@
     "languages": [],
     "method": "download",
     "status": "acquired",
-    "acquired_at": "2026-11-10T03:04:47.798343+00:00"
+    "acquired_at": "2026-11-10T11:04:47.798343+08:00",
+    "storage_state": "pruned",
+    "storage_policy": "compact-v1"
   },
   {
     "id": "tei-alternative",
@@ -643,7 +735,7 @@
     "method": "download",
     "status": "unavailable",
     "error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>",
-    "acquired_at": "2026-11-10T03:04:53.840948+00:00",
+    "acquired_at": "2026-11-10T11:04:53.840948+08:00",
     "resolved_by": "tei-source-xml"
   },
   {
@@ -657,7 +749,9 @@
     ],
     "method": "download",
     "status": "acquired",
-    "acquired_at": "2026-11-10T03:04:55.923024+00:00"
+    "acquired_at": "2026-11-10T11:04:55.923024+08:00",
+    "storage_state": "pruned",
+    "storage_policy": "compact-v1"
   },
   {
     "id": "onomaverse/name-transliterations.csv",
@@ -671,7 +765,9 @@
     "method": "download",
     "status": "acquired",
     "version": "v2026.10",
-    "acquired_at": "2026-11-10T03:04:56.969645+00:00"
+    "acquired_at": "2026-11-10T11:04:56.969645+08:00",
+    "storage_state": "pruned",
+    "storage_policy": "compact-v1"
   },
   {
     "id": "jmdict-xml-http",
@@ -682,7 +778,9 @@
     "languages": [],
     "method": "download",
     "status": "acquired",
-    "acquired_at": "2026-11-10T03:05:01.074640+00:00"
+    "acquired_at": "2026-11-10T11:05:01.07464+08:00",
+    "storage_state": "pruned",
+    "storage_policy": "compact-v1"
   },
   {
     "id": "tei-source-xml",
@@ -693,7 +791,7 @@
     "languages": [],
     "method": "download",
     "status": "acquired",
-    "acquired_at": "2026-11-10T03:13:28.485574+00:00"
+    "acquired_at": "2026-11-10T11:13:28.485574+08:00"
   },
   {
     "id": "tool-aria2",

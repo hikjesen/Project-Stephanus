@@ -2,6 +2,10 @@
 
 面向创作者的本地姓名与词典查询工具。首版提供日语姓名、同音写法、日语词义、拉丁词典、欧洲姓名关系及罗马字工具；创作与名称拉丁化 skill 后续另做。
 
+数据采用 compact-v1，用途、重建及本阶段交付记录见 [精简运行库说明](docs/compact-runtime.md)。后续名称拉丁化的调用路线见 [skill 设计稿](docs/latinization-skill-design.md)，当前不安装实际 skill。
+
+2026-11-10 本阶段交付：运行数据约 **475.62 MiB**；整个项目含 Python 环境约 **522 MiB**，相对初始资源快照净减少 **8.993 GiB**。本阶段唯一一次验收的 14 项均通过。数字按文件长度统计，后续少量代码、报告和缓存会产生小幅增量。
+
 ## 使用
 
 环境为 Python 3.12，项目依赖通过 uv 管理。在项目目录执行：
@@ -21,7 +25,13 @@ uv run stephanus analyze 'amavit'
 uv run stephanus targets
 ```
 
-本机数据已准备完成，可以直接查询。首次从 GitHub 克隆到新机器时，先按下方“资源获取与导入”下载数据并构建索引，再执行查询。
+本机数据已准备完成，可以直接查询。其他机器优先使用 [compact-v1 Release](https://github.com/hikjesen/Project-Stephanus/releases/tag/compact-v1) 中的预构建数据库与运行数据包：
+
+1. 克隆仓库或下载对应标签的源码。
+2. 下载 [stephanus-compact-v1-runtime.zip](https://github.com/hikjesen/Project-Stephanus/releases/download/compact-v1/stephanus-compact-v1-runtime.zip)，解压到项目根目录，保留其中 `data/`、`vendor/` 等目录结构。
+3. 执行 `uv sync`，随后直接查询或启动 MCP，无需 fetch/import。
+
+也可以将运行包解压到独立目录，用 `STEPHANUS_HOME` 指向该目录。只有需要从原始资料重建时，才执行下方“资源获取与导入”的命令。
 
 使用查询返回的 `id` 读取详细记录与姓名关系：
 
@@ -32,7 +42,9 @@ uv run stephanus related 'onomaverse:john-fn' --limit 10
 
 `--limit` 默认 20，`--offset` 默认 0。`mode` 可取 `auto`、`text`、`reading`、`meaning`。姓名类别可用 `--category given` 或 `--category surname`；来源保留其自身类别信息。
 
-JSON 输出使用 UTF-8。主要字段为 `id/source/kind/text/language/readings/description/extra`。不同来源独立返回，同名记录不会被强制合并。普通检索使用简单的精确、前缀、释义匹配顺序，不计算综合评分。
+JSON 输出使用 UTF-8。主要字段为 `id/source/kind/text/language/readings/description/extra`。不同来源独立返回，同名记录不会被强制合并。列表只返回最多 240 字的摘要及 `extra.match`；用 `entry` 取得 `extra.knowledge` 中的义项、词源、词形、相关词、历史资料及来源定位。原始 JSON、词典文章和用例全文不再保留。普通检索使用精确写法、精确读音、前缀和释义顺序，不计算综合评分。
+
+纯词形仍能按原 ID 查询，其详情指向所对应的词目与语法标签；释义查询只返回真实词目，避免大量屈折形式重复占据结果。`sources` 默认返回简要覆盖信息，完整资源清单使用 `sources --include-resources`。
 
 ## MCP
 
@@ -57,13 +69,13 @@ uv run stephanus serve
 ## 资源获取与导入
 
 ```powershell
-uv run stephanus fetch --group sources
-uv run stephanus fetch --group data
+uv run stephanus fetch --group sources --include-pruned
+uv run stephanus fetch --group data --include-pruned
 uv run stephanus fetch --group references
 uv run stephanus import
 ```
 
-`resources.json` 同时保留本次版本的资源地址及历史取得状态；`data/import-summary.json` 记录实际导入结果。下载仅在本地文件也存在时跳过，因此克隆代码到新机器后仍能取回资源。已有备用来源的失败端点沿用记录中的 `resolved_by`；数据优先按清单快照复现，不依赖重新查询最新发布版。
+上面的命令用于明确恢复构建原料；会临时占用较多空间。`resources.json` 保存资源地址、版本、源码 revision、历史取得状态和 `storage_state`。普通 fetch 跳过 `pruned` 项，防止清理后的项目被自动扩回原体积。`--include-pruned` 或显式 `--only ID` 才恢复相应原料和完整参考源码。已有运行库上的 import 只列出已索引来源；从头重建请使用新的资源根。原始输入经临时旧格式索引转换成 compact-v1，临时索引随后删除；恢复的下载原料不会被 import 隐式删除。
 
 不进行下载后的全库复查或哈希校验。失败资源登记错误后继续；显式指定 `fetch --only ID` 可重新获取失败资源，不会自动循环重试。
 
@@ -71,10 +83,10 @@ uv run stephanus import
 
 - JMnedict、JMdict、KANJIDIC2、欧洲姓名 CSV、Kaikki 和 CLTK 进入统一 SQLite 索引。
 - jinmei-dict 直接读取原有 JSON；Japanese Personal Name Dataset 直接查询其 SQLite。
-- verba 通过原有 CLI 提供词典及形态分析。
+- verba 的英拉和拉英知识已提取至紧凑数据库；形态分析继续调用原有 Whitaker 引擎与约 6 MiB 的必要数据。
 - python-romkan 直接加载源码模块，避开旧安装脚本对已移除的 `imp` 的依赖。
-- Kuroshiro、WanaKana、Collatinus 与应用项目保留作后续接入和实现参考。
-- Kaikki 共享源仅保留压缩包；流式提取日语、拉丁语到 `ja-la.jsonl`，不保存全语言解压副本。
+- Kuroshiro、WanaKana、Collatinus 与应用参考工程的完整副本已列入本阶段清理范围，保留取得入口、版本和署名说明。
+- Kaikki 的姓名、义项、词源和词形映射提取完成后，压缩总包与 `ja-la.jsonl` 均删除。
 
 Medieval CSV 中无法直接确定文献用语的记录使用 `language="und"`，原有 `ORIGIN/AREA/CASE` 等字段保存在 `extra` 中。Onomaverse 本名记录同样保留为 `und`，本地化记录使用其语言代码。未指定语言时可以联合查询全部来源。
 
@@ -96,14 +108,14 @@ Medieval CSV 中无法直接确定文献用语的记录使用 `language="und"`�
 
 ## 一次验收
 
-`scripts/accept_once.py` 使用实际数据和 stdio MCP 集中执行一轮功能验收，结果保存到 `data/acceptance.json`。报告存在时拒绝重复执行。不测试语言学准确率，不生成评分或多轮评测流程。
+旧 MVP 的 `scripts/accept_once.py` 和 `data/acceptance.json` 保持历史状态，不重跑。compact-v1 新产物的唯一一次验收由 `scripts/accept_compact_once.py` 在独立候选资源根上执行，结果写入 `data/reports/compact-acceptance.json`。报告存在时拒绝重复执行。不测试语言学准确率，不生成评分或多轮评测流程。
 
 裸 `dict` 注解导致的 MCP 结构化输出缺失已修复：七个接口均显式声明 `dict[str, Any]` 和 `structured_output=True`。原整套验收没有重复执行；此次对修复后的结构化输出做了一次单独确认，结果见本地 `data/mcp-output-fix.json`。
 
 ## 仓库与本地资源
 
-GitHub 仓库包含项目代码、说明、配置模板、资源清单和复现工具。`data/`、`vendor/`、`.venv/` 保留在本地，不进入 Git 历史。
+GitHub 仓库包含项目代码、说明、配置模板、资源清单和复现工具。数据库与必要运行文件通过 Release 附件提供；`data/`、`vendor/`、`.venv/` 不进入 Git 历史。运行包不含 Python 环境、个人配置或本机路径，使用 `scripts/package_runtime.py --output ZIP_PATH` 可从已安装数据生成。
 
-`data/` 包含原始压缩包、筛选后的词典及生成索引。`vendor/` 包含第三方原版源码；jinmei-dict、verba、python-romkan 会直接用于运行，其余项目主要供导入、重建或后续参考。
+`data/` 保存紧凑数据库、必要原生姓名 SQLite、报告、来源说明与少量历史参考。`vendor/` 只保留 jinmei JSON、verba 的必要代码与 Whitaker 数据，以及 python-romkan 模块。
 
-常规查询需要数据库及已接入后端。原始压缩包和参考应用源码主要用于重建及后续开发；本次不会自动清理这些文件。存储占用及各部分用途见 `STORAGE.md`。
+运行数据预算为 500 MiB，不含 Python 环境。初始资源快照见 `STORAGE.md`；本次实际体积、删除文件及净释放量见 `data/reports/compact-cleanup.json`，不再保留旧库、原料归档或永久候选副本。

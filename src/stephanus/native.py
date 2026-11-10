@@ -17,6 +17,14 @@ def native_entry(identifier, source, text, readings, category, extra):
     return {"id": identifier, "source": source, "kind": "name", "language": "ja", "text": text,
             "readings": readings, "category": category, "description": "", "extra": extra}
 
+def ordered(items, query, amount):
+    normalized = key(query)
+    for item in items:
+        priority = 0 if key(item['text']) == normalized else 1
+        item['extra']['match'] = 'text_exact' if priority == 0 else 'reading_exact'
+        item['_sort'] = (priority, key(item['text']), item['source'], 0, item['id'])
+    return sorted(items, key=lambda item: item['_sort'])[:amount]
+
 @lru_cache(maxsize=2)
 def jinmei_map(group):
     with (VENDOR / JINMEI / "jinmei" / (group + ".json")).open(encoding="utf-8") as f:
@@ -33,9 +41,7 @@ def search_jinmei(query, amount, category=None, mode="auto"):
             for index, text in enumerate(forms):
                 if reading_match or (mode in ("auto", "text") and key(text) == normalized):
                     result.append(native_entry(f"{JINMEI}:{group}:{reading}:{index}", JINMEI, text, [reading], kind, {}))
-                    if len(result) >= amount:
-                        return result
-    return result
+    return ordered(result, query, amount)
 
 def personal_db():
     return sqlite3.connect((DATA / "raw" / PERSONAL / "japanese_names.sqlite").as_uri() + "?mode=ro", uri=True)
@@ -52,10 +58,10 @@ def search_personal(query, amount, category=None, mode="auto"):
             if mode in ("auto", "reading"):
                 condition.extend(["f.reading=?", "f.romaji=?"])
                 parameters.extend([normalized, normalized])
-            rows = c.execute("SELECT f.id,k.position,k.kanji,f.reading,f.romaji,f.gender,f.popular FROM first_names f JOIN first_name_kanji k ON k.first_name_id=f.id WHERE " + " OR ".join(condition) + " LIMIT ?", parameters + [amount])
+            rows = c.execute("SELECT f.id,k.position,k.kanji,f.reading,f.romaji,f.gender,f.popular FROM first_names f JOIN first_name_kanji k ON k.first_name_id=f.id WHERE " + " OR ".join(condition), parameters)
             for row in rows:
                 result.append(native_entry(f"{PERSONAL}:first:{row[0]}:{row[1]}", PERSONAL, row[2], [row[3]], "given", {"romaji": row[4], "gender": row[5], "popular": row[6]}))
-        if category != "given" and len(result) < amount:
+        if category != "given":
             condition, parameters = [], []
             if mode in ("auto", "text"):
                 condition.append("kanji=?")
@@ -63,9 +69,9 @@ def search_personal(query, amount, category=None, mode="auto"):
             if mode in ("auto", "reading"):
                 condition.extend(["reading=?", "romaji=?"])
                 parameters.extend([normalized, normalized])
-            for row in c.execute("SELECT kanji,reading,romaji,count FROM last_names WHERE " + " OR ".join(condition) + " LIMIT ?", parameters + [amount - len(result)]):
+            for row in c.execute("SELECT kanji,reading,romaji,count FROM last_names WHERE " + " OR ".join(condition), parameters):
                 result.append(native_entry(f"{PERSONAL}:last:{row[0]}", PERSONAL, row[0], [row[1]], "surname", {"romaji": row[2], "population_estimate": row[3]}))
-    return result
+    return ordered(result, query, amount)
 
 def get_native(identifier):
     if identifier.startswith(JINMEI + ":"):

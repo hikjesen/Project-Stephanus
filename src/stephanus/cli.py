@@ -17,9 +17,11 @@ def main():
     fetch.add_argument("--group", choices=["all", "sources", "data", "references"], default="all")
     fetch.add_argument("--only")
     fetch.add_argument("--workers", type=int, default=4)
+    fetch.add_argument("--include-pruned", action="store_true", help="Explicitly restore sources removed by the storage policy")
     importer = commands.add_parser("import", help="Build common indexes; completed sources are skipped")
     importer.add_argument("--source")
-    commands.add_parser("sources")
+    sources = commands.add_parser("sources")
+    sources.add_argument("--include-resources", action="store_true")
     commands.add_parser("targets")
     commands.add_parser("serve", help="Run the local stdio MCP server")
     for name in ["names", "words"]:

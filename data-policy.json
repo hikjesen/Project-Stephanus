@@ -1,0 +1,11 @@
+{
+  "version": "compact-v1",
+  "runtime_budget_bytes": 524288000,
+  "preserve": ["all indexed public IDs", "all name languages", "all name relations", "original written forms and readings", "lexical senses and etymology", "compact inflection and variant links"],
+  "discard": ["raw-record JSON fallback", "source dictionary articles", "example and quotation full text", "page and template metadata", "media URLs", "redundant downloads", "unused source projects"],
+  "jmdict_gloss_languages": ["eng"],
+  "latin_dictionary_gloss_characters": 240,
+  "compression": "256-record shared compression blocks; zlib with static JSON dictionary only when smaller",
+  "search": "shared written strings and readings; plain-term FTS over lexical meaning and etymology; pure forms excluded from FTS",
+  "runtime_assets": ["vendor/jinmei-dict/jinmei/mei.json", "vendor/jinmei-dict/jinmei/sei.json", "data/raw/japanese-personal-name-dataset/japanese_names.sqlite", "vendor/verba/verba.py", "vendor/verba/source/DICTLINE.GEN", "vendor/verba/source/INFLECTS.LAT", "vendor/verba/source/UNIQUES.LAT", "vendor/python-romkan/src/romkan"]
+}
