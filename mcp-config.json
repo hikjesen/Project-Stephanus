@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "stephanus": {
+      "command": "uv",
+      "args": ["--directory", "REPLACE_WITH_ABSOLUTE_PROJECT_PATH", "run", "stephanus", "serve"],
+      "env": {
+        "PYTHONIOENCODING": "utf-8",
+        "PYTHONUTF8": "1"
+      }
+    }
+  }
+}

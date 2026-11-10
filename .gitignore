@@ -1,0 +1,8 @@
+.venv/
+vendor/
+data/
+__pycache__/
+*.egg-info/
+.pytest_cache/
+mcp-config.local.json
+storage-usage.local.json

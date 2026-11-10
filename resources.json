@@ -1,0 +1,708 @@
+[
+  {
+    "id": "repo-jmdict-simplified",
+    "group": "sources",
+    "url": "https://github.com/scriptin/jmdict-simplified.git",
+    "local_path": "vendor\\jmdict-simplified",
+    "purpose": "Dictionary JSON conversion",
+    "languages": [
+      "ja"
+    ],
+    "method": "git",
+    "status": "acquired",
+    "acquired_at": "2026-11-10T02:55:58.900885+00:00"
+  },
+  {
+    "id": "repo-jinmei-dict",
+    "group": "sources",
+    "url": "https://github.com/s1r-J/jinmei-dict.git",
+    "local_path": "vendor\\jinmei-dict",
+    "purpose": "Homophonic Japanese names",
+    "languages": [
+      "ja"
+    ],
+    "method": "git",
+    "status": "acquired",
+    "acquired_at": "2026-11-10T02:56:48.287818+00:00"
+  },
+  {
+    "id": "repo-japanese-personal-name-dataset",
+    "group": "sources",
+    "url": "https://github.com/shuheilocale/japanese-personal-name-dataset.git",
+    "local_path": "vendor\\japanese-personal-name-dataset",
+    "purpose": "Japanese names and native SQLite",
+    "languages": [
+      "ja"
+    ],
+    "method": "git",
+    "status": "acquired",
+    "acquired_at": "2026-11-10T02:56:01.978557+00:00"
+  },
+  {
+    "id": "repo-japanesenames",
+    "group": "sources",
+    "url": "https://github.com/flapBird/japanesenames.git",
+    "local_path": "vendor\\japanesenames",
+    "purpose": "Name dataset and application reference",
+    "languages": [
+      "ja"
+    ],
+    "method": "git",
+    "status": "acquired",
+    "acquired_at": "2026-11-10T02:55:56.885749+00:00"
+  },
+  {
+    "id": "repo-nihongo-mono",
+    "group": "sources",
+    "url": "https://github.com/stndaru/nihongo-mono.git",
+    "local_path": "vendor\\nihongo-mono",
+    "purpose": "Offline dictionary implementation reference",
+    "languages": [
+      "ja"
+    ],
+    "method": "git",
+    "status": "acquired",
+    "acquired_at": "2026-11-10T02:56:49.232990+00:00"
+  },
+  {
+    "id": "repo-yomikun-app",
+    "group": "sources",
+    "url": "https://github.com/richardjharris/yomikun-app.git",
+    "local_path": "vendor\\yomikun-app",
+    "purpose": "Japanese name lookup application reference",
+    "languages": [
+      "ja"
+    ],
+    "method": "git",
+    "status": "acquired",
+    "acquired_at": "2026-11-10T02:56:01.701989+00:00"
+  },
+  {
+    "id": "repo-python-romkan",
+    "group": "sources",
+    "url": "https://github.com/soimort/python-romkan.git",
+    "local_path": "vendor\\python-romkan",
+    "purpose": "Kana and romaji conversion",
+    "languages": [
+      "ja"
+    ],
+    "method": "git",
+    "status": "acquired",
+    "acquired_at": "2026-11-10T02:55:58.801890+00:00"
+  },
+  {
+    "id": "repo-kuroshiro",
+    "group": "sources",
+    "url": "https://github.com/hexenq/kuroshiro.git",
+    "local_path": "vendor\\kuroshiro",
+    "purpose": "Japanese script conversion",
+    "languages": [
+      "ja"
+    ],
+    "method": "git",
+    "status": "acquired",
+    "acquired_at": "2026-11-10T02:56:01.398599+00:00"
+  },
+  {
+    "id": "repo-wanakana",
+    "group": "sources",
+    "url": "https://github.com/WaniKani/WanaKana.git",
+    "local_path": "vendor\\wanakana",
+    "purpose": "Kana and romaji utilities",
+    "languages": [
+      "ja"
+    ],
+    "method": "git",
+    "status": "acquired",
+    "acquired_at": "2026-11-10T02:56:02.154025+00:00"
+  },
+  {
+    "id": "repo-kuroshiro-analyzer-kuromoji",
+    "group": "sources",
+    "url": "https://github.com/hexenq/kuroshiro-analyzer-kuromoji.git",
+    "local_path": "vendor\\kuroshiro-analyzer-kuromoji",
+    "purpose": "Kuroshiro analyzer",
+    "languages": [
+      "ja"
+    ],
+    "method": "git",
+    "status": "acquired",
+    "acquired_at": "2026-11-10T02:56:03.204089+00:00"
+  },
+  {
+    "id": "repo-verba",
+    "group": "sources",
+    "url": "https://github.com/daniel-persigehl/verba.git",
+    "local_path": "vendor\\verba",
+    "purpose": "Latin dictionaries and morphology",
+    "languages": [
+      "la",
+      "en"
+    ],
+    "method": "git",
+    "status": "acquired",
+    "acquired_at": "2026-11-10T02:56:10.736982+00:00"
+  },
+  {
+    "id": "repo-smith-hall",
+    "group": "sources",
+    "url": "https://github.com/nikita-moor/latin-dictionary.git",
+    "local_path": "vendor\\smith-hall",
+    "purpose": "Smith and Hall digital dictionary",
+    "languages": [
+      "la",
+      "en"
+    ],
+    "method": "git",
+    "status": "acquired",
+    "acquired_at": "2026-11-10T02:56:17.890438+00:00"
+  },
+  {
+    "id": "repo-perseus-lexica",
+    "group": "sources",
+    "url": "https://github.com/PerseusDL/lexica.git",
+    "local_path": "vendor\\perseus-lexica",
+    "purpose": "Lewis and Short TEI source",
+    "languages": [
+      "la",
+      "grc"
+    ],
+    "method": "git",
+    "status": "acquired",
+    "acquired_at": "2026-11-10T02:57:06.724371+00:00"
+  },
+  {
+    "id": "repo-whitakers-words",
+    "group": "sources",
+    "url": "https://github.com/mk270/whitakers-words.git",
+    "local_path": "vendor\\whitakers-words",
+    "purpose": "Whitaker morphology source",
+    "languages": [
+      "la"
+    ],
+    "method": "git",
+    "status": "acquired",
+    "acquired_at": "2026-11-10T02:56:08.555910+00:00"
+  },
+  {
+    "id": "repo-collatinus",
+    "group": "sources",
+    "url": "https://github.com/CIRCSE/collatinus.git",
+    "local_path": "vendor\\collatinus",
+    "purpose": "Latin morphology application reference",
+    "languages": [
+      "la"
+    ],
+    "method": "git",
+    "status": "acquired",
+    "acquired_at": "2026-11-10T02:56:15.225172+00:00"
+  },
+  {
+    "id": "repo-latin-proper-names",
+    "group": "sources",
+    "url": "https://github.com/cltk/latin_proper_names_cltk.git",
+    "local_path": "vendor\\latin-proper-names",
+    "purpose": "Classical proper-name word list",
+    "languages": [
+      "la"
+    ],
+    "method": "git",
+    "status": "acquired",
+    "acquired_at": "2026-11-10T02:56:12.817282+00:00"
+  },
+  {
+    "id": "repo-onomaverse",
+    "group": "sources",
+    "url": "https://github.com/onomaverse/datasets.git",
+    "local_path": "vendor\\onomaverse",
+    "purpose": "Multilingual names and relations",
+    "languages": [
+      "mul"
+    ],
+    "method": "git",
+    "status": "acquired",
+    "acquired_at": "2026-11-10T02:56:15.075173+00:00"
+  },
+  {
+    "id": "repo-medieval-names",
+    "group": "sources",
+    "url": "https://github.com/ked66/Medieval-European-Name-Reference-Tool-.git",
+    "local_path": "vendor\\medieval-names",
+    "purpose": "DMNES-derived name tables",
+    "languages": [
+      "mul"
+    ],
+    "method": "git",
+    "status": "acquired",
+    "acquired_at": "2026-11-10T02:56:25.709525+00:00"
+  },
+  {
+    "id": "repo-wiktextract",
+    "group": "sources",
+    "url": "https://github.com/tatuylonen/wiktextract.git",
+    "local_path": "vendor\\wiktextract",
+    "purpose": "Multilingual extraction reference",
+    "languages": [
+      "mul"
+    ],
+    "method": "git",
+    "status": "acquired",
+    "acquired_at": "2026-11-10T02:56:25.981605+00:00"
+  },
+  {
+    "id": "repo-mcp-python-sdk",
+    "group": "sources",
+    "url": "https://github.com/modelcontextprotocol/python-sdk.git",
+    "local_path": "vendor\\mcp-python-sdk",
+    "purpose": "MCP implementation reference",
+    "languages": [],
+    "method": "git",
+    "status": "acquired",
+    "acquired_at": "2026-11-10T02:56:31.977983+00:00"
+  },
+  {
+    "id": "ninjal-romanization",
+    "group": "references",
+    "url": "https://kotoba.ninjal.ac.jp/qa/yokuaru/qa-183/",
+    "local_path": "data\\references\\ninjal-romanization.html",
+    "purpose": "Historical romanization overview",
+    "languages": [],
+    "method": "download",
+    "status": "acquired",
+    "acquired_at": "2026-11-10T02:56:26.815330+00:00"
+  },
+  {
+    "id": "found-in-transliteration",
+    "group": "references",
+    "url": "https://nichibun.repo.nii.ac.jp/record/2000509/files/jare_040_213.pdf",
+    "local_path": "data\\references\\found-in-transliteration.pdf",
+    "purpose": "Missionary Japanese name transliterations",
+    "languages": [],
+    "method": "download",
+    "status": "unavailable",
+    "error": "HTTP Error 503: Service Temporarily Unavailable",
+    "acquired_at": "2026-11-10T02:56:27.198692+00:00",
+    "resolved_by": "found-in-transliteration-jstage"
+  },
+  {
+    "id": "latinization-personal-names",
+    "group": "references",
+    "url": "https://www.iapt-taxon.org/historic/Congress/IBC_1975/Prop030-032.pdf",
+    "local_path": "data\\references\\latinization-personal-names.pdf",
+    "purpose": "Nicolson 1974 latinization reference",
+    "languages": [],
+    "method": "download",
+    "status": "acquired",
+    "acquired_at": "2026-11-10T02:56:31.866592+00:00"
+  },
+  {
+    "id": "nippo-jisho",
+    "group": "references",
+    "url": "https://ndlsearch.ndl.go.jp/search?keyword=%E6%97%A5%E8%91%A1%E8%BE%9E%E6%9B%B8",
+    "local_path": "data\\references\\nippo-jisho.html",
+    "purpose": "Nippo Jisho public catalogue entry",
+    "languages": [],
+    "method": "download",
+    "status": "acquired",
+    "acquired_at": "2026-11-10T02:56:28.869341+00:00"
+  },
+  {
+    "id": "ontolex",
+    "group": "references",
+    "url": "https://www.w3.org/2016/05/ontolex/",
+    "local_path": "data\\references\\ontolex.html",
+    "purpose": "OntoLex community report",
+    "languages": [],
+    "method": "download",
+    "status": "acquired",
+    "acquired_at": "2026-11-10T02:56:30.771292+00:00"
+  },
+  {
+    "id": "tei-dictionaries",
+    "group": "references",
+    "url": "https://tei-c.org/release/doc/tei-p5-doc/en/html/DI.html",
+    "local_path": "data\\references\\tei-dictionaries.html",
+    "purpose": "TEI dictionary structure reference",
+    "languages": [],
+    "method": "download",
+    "status": "unavailable",
+    "error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)>",
+    "acquired_at": "2026-11-10T02:56:41.522984+00:00",
+    "resolved_by": "tei-source-xml"
+  },
+  {
+    "id": "dmnes",
+    "group": "references",
+    "url": "https://dmnes.org/",
+    "local_path": "data\\references\\dmnes.html",
+    "purpose": "Medieval names reference",
+    "languages": [],
+    "method": "download",
+    "status": "acquired",
+    "acquired_at": "2026-11-10T02:56:35.385427+00:00"
+  },
+  {
+    "id": "dmnes-guide",
+    "group": "references",
+    "url": "https://dmnes.org/guide",
+    "local_path": "data\\references\\dmnes-guide.html",
+    "purpose": "DMNES field guide",
+    "languages": [],
+    "method": "download",
+    "status": "acquired",
+    "acquired_at": "2026-11-10T02:56:34.484686+00:00"
+  },
+  {
+    "id": "behind-the-name",
+    "group": "references",
+    "url": "https://www.behindthename.com/api/",
+    "local_path": "data\\references\\behind-the-name.html",
+    "purpose": "Optional API and download information",
+    "languages": [],
+    "method": "download",
+    "status": "acquired",
+    "acquired_at": "2026-11-10T02:56:36.726536+00:00"
+  },
+  {
+    "id": "behind-the-name-download",
+    "group": "references",
+    "url": "https://www.behindthename.com/api/download.php",
+    "local_path": "data\\references\\behind-the-name-download.html",
+    "purpose": "Manual CAPTCHA-protected download entry",
+    "languages": [],
+    "method": "download",
+    "status": "acquired",
+    "acquired_at": "2026-11-10T02:56:36.757818+00:00"
+  },
+  {
+    "id": "morgan-owens",
+    "group": "references",
+    "url": "https://neolatinlexicon.org/",
+    "local_path": "data\\references\\morgan-owens.html",
+    "purpose": "Optional Neo-Latin online lookup",
+    "languages": [],
+    "method": "download",
+    "status": "acquired",
+    "acquired_at": "2026-11-10T02:56:41.363311+00:00"
+  },
+  {
+    "id": "kaikki-downloads",
+    "group": "references",
+    "url": "https://kaikki.org/dictionary/rawdata.html",
+    "local_path": "data\\references\\kaikki-downloads.html",
+    "purpose": "Wiktextract download catalogue",
+    "languages": [],
+    "method": "download",
+    "status": "acquired",
+    "acquired_at": "2026-11-10T02:56:39.118355+00:00"
+  },
+  {
+    "id": "jmnedict-xml",
+    "group": "data",
+    "url": "https://ftp.edrdg.org/pub/Nihongo/JMnedict.xml.gz",
+    "local_path": "data\\raw\\edrdg\\JMnedict.xml.gz",
+    "purpose": "Original EDRDG XML",
+    "languages": [
+      "ja"
+    ],
+    "method": "download",
+    "status": "unavailable",
+    "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'ftp.edrdg.org'. (_ssl.c:1000)>",
+    "acquired_at": "2026-11-10T02:56:40.292560+00:00",
+    "resolved_by": "jmnedict-xml-http"
+  },
+  {
+    "id": "jmdict-xml",
+    "group": "data",
+    "url": "https://ftp.edrdg.org/pub/Nihongo/JMdict.gz",
+    "local_path": "data\\raw\\edrdg\\JMdict.gz",
+    "purpose": "Original EDRDG XML",
+    "languages": [
+      "ja"
+    ],
+    "method": "download",
+    "status": "unavailable",
+    "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'ftp.edrdg.org'. (_ssl.c:1000)>",
+    "acquired_at": "2026-11-10T02:56:41.087913+00:00",
+    "resolved_by": "jmdict-xml-http"
+  },
+  {
+    "id": "kanjidic2-xml",
+    "group": "data",
+    "url": "https://www.edrdg.org/kanjidic/kanjidic2.xml.gz",
+    "local_path": "data\\raw\\edrdg\\kanjidic2.xml.gz",
+    "purpose": "Original EDRDG XML",
+    "languages": [
+      "ja"
+    ],
+    "method": "download",
+    "status": "acquired",
+    "acquired_at": "2026-11-10T02:56:52.863227+00:00"
+  },
+  {
+    "id": "jmdict-simplified/jmdict-all-3.6.2+20261109214828.json.zip",
+    "group": "data",
+    "url": "https://github.com/scriptin/jmdict-simplified/releases/download/3.6.2%2B20261109214828/jmdict-all-3.6.2%2B20261109214828.json.zip",
+    "local_path": "data\\raw\\jmdict-simplified\\jmdict-all-3.6.2+20261109214828.json.zip",
+    "purpose": "Released dataset",
+    "languages": [
+      "ja"
+    ],
+    "method": "download",
+    "status": "unavailable",
+    "version": "3.6.2+20261109214828",
+    "extract": true,
+    "error": "<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>",
+    "acquired_at": "2026-11-10T02:57:02.408987+00:00",
+    "resolved_by": "jmdict-full-alternative"
+  },
+  {
+    "id": "jmdict-simplified/jmnedict-all-3.6.2+20261109214828.json.zip",
+    "group": "data",
+    "url": "https://github.com/scriptin/jmdict-simplified/releases/download/3.6.2%2B20261109214828/jmnedict-all-3.6.2%2B20261109214828.json.zip",
+    "local_path": "data\\raw\\jmdict-simplified\\jmnedict-all-3.6.2+20261109214828.json.zip",
+    "purpose": "Released dataset",
+    "languages": [
+      "ja"
+    ],
+    "method": "download",
+    "status": "acquired",
+    "version": "3.6.2+20261109214828",
+    "extract": true,
+    "acquired_at": "2026-11-10T02:57:02.800566+00:00"
+  },
+  {
+    "id": "jmdict-simplified/kanjidic2-all-3.6.2+20261109214828.json.zip",
+    "group": "data",
+    "url": "https://github.com/scriptin/jmdict-simplified/releases/download/3.6.2%2B20261109214828/kanjidic2-all-3.6.2%2B20261109214828.json.zip",
+    "local_path": "data\\raw\\jmdict-simplified\\kanjidic2-all-3.6.2+20261109214828.json.zip",
+    "purpose": "Released dataset",
+    "languages": [
+      "ja"
+    ],
+    "method": "download",
+    "status": "acquired",
+    "version": "3.6.2+20261109214828",
+    "extract": true,
+    "acquired_at": "2026-11-10T02:56:51.962591+00:00"
+  },
+  {
+    "id": "japanese-personal-name-dataset/japanese_names.sqlite",
+    "group": "data",
+    "url": "https://github.com/shuheilocale/japanese-personal-name-dataset/releases/download/v0.5.0/japanese_names.sqlite",
+    "local_path": "data\\raw\\japanese-personal-name-dataset\\japanese_names.sqlite",
+    "purpose": "Released dataset",
+    "languages": [
+      "ja"
+    ],
+    "method": "download",
+    "status": "acquired",
+    "version": "v0.5.0",
+    "extract": false,
+    "acquired_at": "2026-11-10T02:57:03.721241+00:00"
+  },
+  {
+    "id": "onomaverse-release",
+    "group": "data",
+    "url": "https://github.com/onomaverse/datasets/releases",
+    "local_path": "data\\raw\\onomaverse",
+    "purpose": "Release discovery",
+    "languages": [],
+    "method": "download",
+    "status": "unavailable",
+    "error": "HTTP Error 403: rate limit exceeded",
+    "resolved_by": "onomaverse/name-equivalence.csv"
+  },
+  {
+    "id": "kaikki-extract",
+    "group": "data",
+    "url": "https://kaikki.org/dictionary/raw-wiktextract-data.jsonl.gz",
+    "local_path": "data\\raw\\kaikki\\raw-wiktextract-data.jsonl.gz",
+    "purpose": "Compressed Wiktextract source; import Japanese and Latin only",
+    "languages": [
+      "ja",
+      "la"
+    ],
+    "method": "aria2",
+    "status": "acquired",
+    "acquired_at": "2026-11-10T03:23:31.234278+00:00"
+  },
+  {
+    "id": "onomaverse/name-gender-inference.csv",
+    "group": "data",
+    "url": "https://github.com/onomaverse/datasets/releases/download/v2026.10/name-gender-inference.csv",
+    "local_path": "data\\raw\\onomaverse\\name-gender-inference.csv",
+    "purpose": "Full released name dataset",
+    "languages": [
+      "mul"
+    ],
+    "method": "download",
+    "status": "acquired",
+    "version": "v2026.10",
+    "acquired_at": "2026-11-10T03:04:39.697327+00:00"
+  },
+  {
+    "id": "onomaverse/surname-frequency.csv",
+    "group": "data",
+    "url": "https://github.com/onomaverse/datasets/releases/download/v2026.10/surname-frequency.csv",
+    "local_path": "data\\raw\\onomaverse\\surname-frequency.csv",
+    "purpose": "Full released name dataset",
+    "languages": [
+      "mul"
+    ],
+    "method": "download",
+    "status": "acquired",
+    "version": "v2026.10",
+    "acquired_at": "2026-11-10T03:04:40.087907+00:00"
+  },
+  {
+    "id": "onomaverse/given-name-frequency.csv",
+    "group": "data",
+    "url": "https://github.com/onomaverse/datasets/releases/download/v2026.10/given-name-frequency.csv",
+    "local_path": "data\\raw\\onomaverse\\given-name-frequency.csv",
+    "purpose": "Full released name dataset",
+    "languages": [
+      "mul"
+    ],
+    "method": "download",
+    "status": "acquired",
+    "version": "v2026.10",
+    "acquired_at": "2026-11-10T03:04:41.312209+00:00"
+  },
+  {
+    "id": "onomaverse/name-days.csv",
+    "group": "data",
+    "url": "https://github.com/onomaverse/datasets/releases/download/v2026.10/name-days.csv",
+    "local_path": "data\\raw\\onomaverse\\name-days.csv",
+    "purpose": "Full released name dataset",
+    "languages": [
+      "mul"
+    ],
+    "method": "download",
+    "status": "acquired",
+    "version": "v2026.10",
+    "acquired_at": "2026-11-10T03:04:41.594081+00:00"
+  },
+  {
+    "id": "onomaverse/name-equivalence.csv",
+    "group": "data",
+    "url": "https://github.com/onomaverse/datasets/releases/download/v2026.10/name-equivalence.csv",
+    "local_path": "data\\raw\\onomaverse\\name-equivalence.csv",
+    "purpose": "Full released name dataset",
+    "languages": [
+      "mul"
+    ],
+    "method": "download",
+    "status": "acquired",
+    "version": "v2026.10",
+    "acquired_at": "2026-11-10T03:04:41.808221+00:00"
+  },
+  {
+    "id": "onomaverse/popular-names-by-country-2026.csv",
+    "group": "data",
+    "url": "https://github.com/onomaverse/datasets/releases/download/v2026.10/popular-names-by-country-2026.csv",
+    "local_path": "data\\raw\\onomaverse\\popular-names-by-country-2026.csv",
+    "purpose": "Full released name dataset",
+    "languages": [
+      "mul"
+    ],
+    "method": "download",
+    "status": "acquired",
+    "version": "v2026.10",
+    "acquired_at": "2026-11-10T03:04:42.257704+00:00"
+  },
+  {
+    "id": "found-in-transliteration-jstage",
+    "group": "references",
+    "url": "https://www.jstage.jst.go.jp/article/japanreview/40/0/40_2025.Gonzalez-Bolado/_pdf",
+    "local_path": "data\\references\\found-in-transliteration-jstage.pdf",
+    "purpose": "Published alternative source",
+    "languages": [],
+    "method": "download",
+    "status": "acquired",
+    "acquired_at": "2026-11-10T03:04:46.040512+00:00"
+  },
+  {
+    "id": "jmnedict-xml-http",
+    "group": "data",
+    "url": "http://ftp.edrdg.org/pub/Nihongo/JMnedict.xml.gz",
+    "local_path": "data\\raw\\edrdg\\JMnedict.xml.gz",
+    "purpose": "Published alternative source",
+    "languages": [],
+    "method": "download",
+    "status": "acquired",
+    "acquired_at": "2026-11-10T03:04:47.798343+00:00"
+  },
+  {
+    "id": "tei-alternative",
+    "group": "references",
+    "url": "https://www.tei-c.org/release/doc/tei-p5-doc/en/html/DI.html",
+    "local_path": "data\\references\\tei-dictionaries-alternative.html",
+    "purpose": "Published alternative source",
+    "languages": [],
+    "method": "download",
+    "status": "unavailable",
+    "error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>",
+    "acquired_at": "2026-11-10T03:04:53.840948+00:00",
+    "resolved_by": "tei-source-xml"
+  },
+  {
+    "id": "jmdict-full-alternative",
+    "group": "data",
+    "url": "https://github.com/scriptin/jmdict-simplified/releases/download/3.6.2%2B20261109214828/jmdict-all-3.6.2%2B20261109214828.json.tgz",
+    "local_path": "data\\raw\\jmdict-simplified\\jmdict-all-3.6.2+20261109214828.json.tgz",
+    "purpose": "Alternative full JMdict archive",
+    "languages": [
+      "ja"
+    ],
+    "method": "download",
+    "status": "acquired",
+    "acquired_at": "2026-11-10T03:04:55.923024+00:00"
+  },
+  {
+    "id": "onomaverse/name-transliterations.csv",
+    "group": "data",
+    "url": "https://github.com/onomaverse/datasets/releases/download/v2026.10/name-transliterations.csv",
+    "local_path": "data\\raw\\onomaverse\\name-transliterations.csv",
+    "purpose": "Full released name dataset",
+    "languages": [
+      "mul"
+    ],
+    "method": "download",
+    "status": "acquired",
+    "version": "v2026.10",
+    "acquired_at": "2026-11-10T03:04:56.969645+00:00"
+  },
+  {
+    "id": "jmdict-xml-http",
+    "group": "data",
+    "url": "http://ftp.edrdg.org/pub/Nihongo/JMdict.gz",
+    "local_path": "data\\raw\\edrdg\\JMdict.gz",
+    "purpose": "Published alternative source",
+    "languages": [],
+    "method": "download",
+    "status": "acquired",
+    "acquired_at": "2026-11-10T03:05:01.074640+00:00"
+  },
+  {
+    "id": "tei-source-xml",
+    "group": "references",
+    "url": "https://raw.githubusercontent.com/TEIC/TEI/dev/P5/Source/Guidelines/en/DI-PrintDictionaries.xml",
+    "local_path": "data\\references\\tei-dictionaries.xml",
+    "purpose": "Official TEI dictionaries XML source",
+    "languages": [],
+    "method": "download",
+    "status": "acquired",
+    "acquired_at": "2026-11-10T03:13:28.485574+00:00"
+  },
+  {
+    "id": "tool-aria2",
+    "group": "tools",
+    "url": "https://github.com/aria2/aria2/releases/download/release-1.37.0/aria2-1.37.0-win-64bit-build1.zip",
+    "local_path": "vendor\\aria2",
+    "purpose": "Segmented download utility",
+    "languages": [],
+    "method": "download",
+    "status": "acquired"
+  }
+]

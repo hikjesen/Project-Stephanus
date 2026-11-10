@@ -1,0 +1,16 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "project-stephanus"
+version = "0.1.0"
+description = "Local multilingual name and lexicon tools for creators"
+requires-python = ">=3.12"
+dependencies = ["mcp==2.3.0", "ijson>=3.3"]
+
+[project.scripts]
+stephanus = "stephanus.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/stephanus"]

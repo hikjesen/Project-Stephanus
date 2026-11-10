@@ -1,0 +1,8 @@
+[
+  {
+    "code": "la",
+    "name": "拉丁语",
+    "capabilities": ["name_lookup", "lexicon_lookup", "name_relations", "morphology"],
+    "sources": ["verba", "kaikki", "latin-proper-names", "onomaverse", "medieval-names"]
+  }
+]
