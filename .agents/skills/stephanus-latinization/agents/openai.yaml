@@ -1,0 +1,6 @@
+interface:
+  display_name: "Stephanus 名称转译"
+  short_description: "结合四类方法，将日语姓名转为生僻、自然的拉丁或罗曼语族完整姓名"
+  default_prompt: "使用 $stephanus-latinization 转译这个日语姓名；先提供至少三个有效意象方向，历史路线默认保留，再给出至少四个且可继续增加的完整姓名，其中至少两个独立于我选定的意象。"
+policy:
+  allow_implicit_invocation: true

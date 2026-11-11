@@ -6,3 +6,4 @@ __pycache__/
 .pytest_cache/
 mcp-config.local.json
 storage-usage.local.json
+.codex/config.toml

@@ -1,10 +1,24 @@
 # Project Stephanus
 
-面向创作者的本地姓名与词典查询工具。首版提供日语姓名、同音写法、日语词义、拉丁词典、欧洲姓名关系及罗马字工具；创作与名称拉丁化 skill 后续另做。
+面向创作者的本地姓名与词典查询工具。提供日语姓名、同音写法、日语词义、拉丁词典、欧洲姓名关系及罗马字工具；正式的名称转译入口为 [Stephanus 名称转译 skill v1.0.1](.agents/skills/stephanus-latinization/SKILL.md)。
 
-数据采用 compact-v1，用途、重建及本阶段交付记录见 [精简运行库说明](docs/compact-runtime.md)。后续名称拉丁化的调用路线见 [skill 设计稿](docs/latinization-skill-design.md)，当前不安装实际 skill。
+数据采用 compact-v1，用途、重建及该阶段交付记录见 [精简运行库说明](docs/compact-runtime.md)。skill 使用既有数据库、七个只读 MCP 工具及同源 CLI；[设计演进记录](docs/latinization-skill-design.md)保留此前决策与案例复盘。
 
 2026-11-10 本阶段交付：运行数据约 **475.62 MiB**；整个项目含 Python 环境约 **522 MiB**，相对初始资源快照净减少 **8.993 GiB**。本阶段唯一一次验收的 14 项均通过。数字按文件长度统计，后续少量代码、报告和缓存会产生小幅增量。
+
+## 名称转译 skill
+
+skill 源码位于本项目的 .agents/skills/stephanus-latinization/，由项目内 Codex 自动发现，也可显式调用：
+
+~~~text
+使用 $stephanus-latinization 为这个日语姓名创作完整别名；先交流我希望保留的关联倾向。
+~~~
+
+首版面向日语原名，目标为拉丁语或罗曼语族风格。倾向未明确时先提供至少三个有效意象方向；历史拼写路线默认保留，不占意象选项。完整姓名至少四个、无固定上限，至少一条回应用户选定、至少两条从其外的独立材料出发，并含完成目标语言适配的历史路线。基础名优先生僻、有辨识度的形式，后续修饰可选且与原版合计一个候选。
+
+完整姓名以外，可额外给零个或一个有明确象征含义的无姓氏单人名，不要求必有，也不占完整姓名及独立完整候选的数量。只有局部修改或另定范围时按用户要求处理。
+
+日常查询 MCP 优先、CLI 备用，具体映射见 [工具指南](.agents/skills/stephanus-latinization/references/tool-usage.md)。每轮结果自动保存到被 Git 忽略的 data/examples/，使用 [精简案例模板](.agents/skills/stephanus-latinization/assets/case-template.md)；[古明地恋摘要](.agents/skills/stephanus-latinization/references/worked-example.md)演示完整流程，原始案例与复盘仍保留在 docs/examples/。
 
 ## 使用
 
@@ -63,6 +77,20 @@ uv run stephanus serve
 - `stephanus_analyze_latin`
 
 `mcp-config.json` 是可移植的配置模板：将 `REPLACE_WITH_ABSOLUTE_PROJECT_PATH` 改为项目绝对路径，再把 `stephanus` 服务加入支持 stdio MCP 的客户端。本机已有可直接使用的 `mcp-config.local.json`，它不进入 Git 仓库。
+
+本机 Codex 已另以项目级 .codex/config.toml 注册 stephanus，复用已有虚拟环境、项目 cwd、STEPHANUS_HOME 与 UTF-8 环境；该文件受 Git 忽略。其他机器若使用 Codex，可按下例在本项目配置，替换绝对路径后加载受信任项目：
+
+~~~toml
+[mcp_servers.stephanus]
+command = "uv"
+args = ["--directory", "REPLACE_WITH_ABSOLUTE_PROJECT_PATH", "run", "stephanus", "serve"]
+
+[mcp_servers.stephanus.env]
+PYTHONIOENCODING = "utf-8"
+PYTHONUTF8 = "1"
+~~~
+
+skill 与 MCP 分别加载。当前聊天尚未暴露工具时可先复用 CLI，重新载入 Codex 后使用 MCP；无需安装全局 skill。
 
 汉字姓名先查读音，再将假名交给 `transliterate_name`。英译拉丁查询使用 `lookup_words(language="la", source="verba", mode="meaning")`。
 

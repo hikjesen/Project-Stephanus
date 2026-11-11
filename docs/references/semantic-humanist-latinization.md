@@ -1,27 +1,5 @@
 # C. 人文主义语义拉丁化
 
-在用户允许明显改变音形，希望通过含义、词源或意象保持联系时读取。选择一个能成立的姓名形式，可以只保留原名的主要意象。
+本指引已迁入正式 skill，内容以[stephanus-latinization 正式参考](../../.agents/skills/stephanus-latinization/references/semantic-humanist-latinization.md)为准。
 
-## 参考来源与适用范围
-
-- Kremer／Cremer → Mercator：[U.S. Department of State 的人物说明](https://art.state.gov/personnel/gerard_mercator/)记述其姓名及“商人”的拉丁语联系；[布鲁日博物馆藏品记录](https://www.museabrugge.be/collection/work/id/2014_gro1150_iii)保存相关姓名形式。
-- Georg Bauer → Georgius Agricola：[Deutsche Biographie 条目](https://www.deutsche-biographie.de/gnd118501062.html)列明其原名及拉丁化姓名。这里只借鉴这位人物的改名实例，不把不同同名人物的经历混用。
-- Nicolson 第 550 页还讨论按整体或部分含义改名；原文位置及使用范围见 [B 的参考](personal-name-latinization.md)。
-
-这些实例说明怎样把含义转换为可使用的姓名。新日语名字运用相近思路，属于本次方法迁用，不意味着该人物历史上已有对应欧洲姓名。
-
-## 怎样使用
-
-先用 `lookup_words` 读姓名中的完整词汇；整体不成词或需要补充时，再查汉字、同音写法或用户给出的意象。先选值得保留的含义，再找拉丁词汇或已有姓名，不要求对每个字一一对应。
-
-英语概念可作工具桥梁：`lookup_words(query=概念, language="la", source="verba", mode="meaning")`，对实际选中的结果读详情。返回义项过宽时换一个相关概念，或换方法；保留含义的取舍即可。
-
-从词汇继续寻找人名／姓氏：尝试 `search_names` 的已有形式，读词源或历史记录；有合适姓名时可接 D，探索其目标语言变体。若直接采用普通词作为新别名，简短标明这是语义创作，并说明为何适合作为此次姓名。
-
-姓氏单独处理。可以采用整体意象、真实欧洲姓氏借鉴、历史拼写、保留原姓或单名方案。`de + 地点` 只在用户风格与具体命名材料支持时选用，不作为翻译所有日语姓氏的模板。
-
-## 选择提示
-
-“早苗 → 幼芽”已经允许取舍，不必把“早”和“苗”全部拼进姓名；“東風谷”也不要求完整表达三个字。现成姓名、文献中的改名、依其方法新造的名字分别说明。
-
-最小形成链为「整体原义／同音借义／人物意象 → 选取的概念 → 词汇与姓名材料 → 采用或加工」。同音借来的含义保留其身份，用户要求诗性直译时可调整默认选择。
+此页保留原路径，供既有设计与案例链接使用；不另行维护一套规则。
