@@ -1,6 +1,6 @@
 # Project Stephanus
 
-面向创作者的本地姓名与词典查询工具。提供日语姓名、同音写法、日语词义、拉丁词典、欧洲姓名关系及罗马字工具；正式的名称转译入口为 [Stephanus 名称转译 skill v1.0.1](.agents/skills/stephanus-latinization/SKILL.md)。
+面向创作者的本地姓名与词典查询工具。提供日语姓名、同音写法、日语词义、拉丁词典、欧洲姓名关系及罗马字工具；正式的名称转译入口为 [Stephanus 名称转译 skill v1.0.2](.agents/skills/stephanus-latinization/SKILL.md)。
 
 数据采用 compact-v1，用途、重建及该阶段交付记录见 [精简运行库说明](docs/compact-runtime.md)。skill 使用既有数据库、七个只读 MCP 工具及同源 CLI；[设计演进记录](docs/latinization-skill-design.md)保留此前决策与案例复盘。
 
@@ -8,7 +8,7 @@
 
 ## 名称转译 skill
 
-skill 源码位于本项目的 .agents/skills/stephanus-latinization/，由项目内 Codex 自动发现，也可显式调用：
+skill 源码位于本项目的 .agents/skills/stephanus-latinization/。v1.0.2 设为**仅用户显式调用**（`policy.allow_implicit_invocation: false`）；Codex 和 ChatGPT 均可通过 `$stephanus-latinization` 或明确指定该 Skill 使用，普通翻译、音译、取名、拉丁化等请求不自动触发：
 
 ~~~text
 使用 $stephanus-latinization 为这个日语姓名创作完整别名；先交流我希望保留的关联倾向。
@@ -19,6 +19,21 @@ skill 源码位于本项目的 .agents/skills/stephanus-latinization/，由项�
 完整姓名以外，可额外给零个或一个有明确象征含义的无姓氏单人名，不要求必有，也不占完整姓名及独立完整候选的数量。只有局部修改或另定范围时按用户要求处理。
 
 日常查询 MCP 优先、CLI 备用，具体映射见 [工具指南](.agents/skills/stephanus-latinization/references/tool-usage.md)。每轮结果自动保存到被 Git 忽略的 data/examples/，使用 [精简案例模板](.agents/skills/stephanus-latinization/assets/case-template.md)；[古明地恋摘要](.agents/skills/stephanus-latinization/references/worked-example.md)演示完整流程，原始案例与复盘仍保留在 docs/examples/。
+
+## ChatGPT 对话接入（Wan MCP）
+
+安装 Skill 时只打包 `.agents/skills/stephanus-latinization/` 子目录（`SKILL.md`、`agents/`、`references/`、`assets/`），不附带数据库或 CLI。安装后，仅在用户明确指定使用该 Skill 时运行命名流程。
+
+已部署 Wan MCP 下游别名 `tencent-sv / stephanus`，接入路径为：
+
+```text
+ChatGPT -> Wan MCP (mcp_tools_list / mcp_tool_call)
+        -> server=tencent-sv, mcp=stephanus
+        -> 腾讯云 /opt/stephanus/.venv/bin/stephanus serve
+        -> compact-v1 数据库
+```
+
+`mcp_tool_call.tool` 使用真实的 `stephanus_*` 工具名，`arguments` 传入查询参数。详见[工具指南](.agents/skills/stephanus-latinization/references/tool-usage.md)。原 Codex 本地 stdio MCP 和 CLI 不受影响；ChatGPT 不假定具备本地项目目录或 Python 环境。ChatGPT 的案例作为 Markdown 交付，不自动写回服务器。
 
 ## 使用
 

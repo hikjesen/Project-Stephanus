@@ -1,19 +1,26 @@
 ---
 name: stephanus-latinization
-description: "为日语人物姓名创作拉丁语或罗曼语族风格的多路线别名，以完整姓名为主，可额外提供象征单人名。用于姓名拉丁化、历史拼写特点类推、欧洲化改名、语义转译，以及已有候选的后续修饰。先交流关联倾向，再用本项目姓名词典材料形成多路线候选。纯查词、通用文本翻译和项目维护不使用本创作流程。"
-metadata:
-  version: "1.0.1"
+description: "仅在用户明确要求调用 Stephanus 名称转译 Skill、使用 $stephanus-latinization 或通过 Skills 菜单手动选中时启用。为日语人物姓名设计拉丁语或罗曼语族完整别名，按历史拼写、形态拉丁化、语义改名和欧洲姓名关系生成多路线候选。普通翻译、音译、取名、拉丁语问题及仅讨论 Project Stephanus 仓库均不触发。"
 ---
 
-# Stephanus 名称转译
+# Stephanus 名称转译（v1.0.2）
 
 本项目的命名创作入口，供创作者将日语姓名转成拉丁语或罗曼语族风格的完整姓名。默认偏好生僻、有辨识度且有命名参照的形式；允许较大音形和意义变化、有依据的创作及跨风格组合。用户明确的语言、地区、时代和本次范围优先。
 
-## 接入
+## 显式调用边界（强制）
 
-优先调用本项目现有七个只读 MCP 工具。首次需要查询时读取[工具与运行指南](references/tool-usage.md)，按宿主实际暴露的工具名调用；MCP 未加载或连接不可用时复用已有 CLI。空命中不切换接口重查。
+仅在用户主动点名并要求调用 Stephanus 名称转译 Skill 时启用，例如：
+- `使用 $stephanus-latinization 为「古明地恋」创作拉丁化别名`；
+- `调用 Stephanus 名称转译 Skill 处理「若叶睦」`；
+- 用户从 ChatGPT Skills 菜单明确选中本 Skill 后发起命名任务。
 
-此 skill 目录向上三层是项目根目录。数据库 compact-v1、CLI 与 MCP 继续由原项目提供；欧洲姓名资料用于选材，首版完整转译流程面向日语原名。
+普通翻译、音译、拉丁化、词源查询、人物取名、讨论 Project Stephanus 仓库、仅提及 Stephanus 项目名，均不触发本 Skill。不得因识别到「翻译」「姓名」「拉丁语」「别名」等关键词自行启用；此前在其他对话使用过本 Skill 也不构成当前调用授权。用户要求停用时立即停止本 Skill 流程。安装端同时在 `agents/openai.yaml` 设置 `policy.allow_implicit_invocation: false`，关闭隐式调用。
+
+## 接入与运行环境
+
+**ChatGPT 对话环境：** 用户显式调用后，通过现有 **@wan server mcp** 转发到腾讯云上的 Stephanus MCP，不在 ChatGPT 沙盒内启动 CLI 或下载约 476 MiB 的运行数据库。连接目标固定为 `server="tencent-sv"`、`mcp="stephanus"`；仅使用现有七个只读 Stephanus 工具。首次查询前用 Wan MCP 的 `mcp_tools_list` 确认工具清单；查询时调用 `mcp_tool_call`，其中 `tool` 为实际 `stephanus_*` 工具名，`arguments` 为下游参数对象。完整示例、返回解析与错误处理见[工具与运行指南](references/tool-usage.md)。不得将 `mcp_tool_call` 误当成直接暴露的 `stephanus_*` 工具。
+
+**Codex／本地项目环境：** 继续优先使用直接 Stephanus MCP，未加载时复用同源 CLI。此时 Skill 目录向上三层是项目根；ChatGPT 安装版没有这个目录前提。工具未连接时说明无法实时查询数据库；不将 GitHub 文档或模型记忆冒充数据库命中。
 
 ## 一次命名
 
@@ -50,7 +57,7 @@ metadata:
 
 候选表包含：构造起点及与用户所选意象的关系、完整基础姓名及姓名顺序、可选修饰后的完整姓名、语言／风格、所保留联系和关键依据。明确标出回应项、至少两个独立来源项与默认历史项；历史中间形另列于对应形成链。按实际候选数量追加表格行和形成链，不预置四项终点；可选象征单人名单独列出其象征含义。
 
-每次命名完成后，用[精简案例模板](assets/case-template.md)写入项目本地 data/examples/。文件名取原名 Hepburn 读音的小写形式、空白改连字符，附用户本地时间 YYYYMMDD-HHmmss；本项目默认时区 Asia/Shanghai。例如 komeiji-koishi-20261111-194200.md。初步交流尚未形成结果时不保存成已完成案例。
+每次命名完成后，按宿主保存[精简案例模板](assets/case-template.md)的实例：Codex／本地项目写入 data/examples/；ChatGPT 对话生成供用户保存的 Markdown 案例文件（工具支持时提供实际文件链接），默认不通过 Wan MCP 写入服务器或仓库。文件名取原名 Hepburn 读音的小写形式、空白改连字符，附用户本地时间 YYYYMMDD-HHmmss；本项目默认时区 Asia/Shanghai。例如 komeiji-koishi-20261111-194200.md。初步交流尚未形成结果时不保存成已完成案例。
 
 记录实际提供的意象方向（或用户已明确、未重复询问的情况）、本次约束、skill 版本、实际候选数量、各条构造起点及与用户意象的关系、形成链与少量依据；如提供单人名，记录其象征含义。模板的候选行与形成链按实际数量展开，可选单人名段落可整段省略，不保留未填写的占位内容。只有用户指定才记为最终采用；认可整组不等于选定某个姓名。后续反馈追加到同一次案例，新创作另建文件；明确指出该次可选修饰是否采用。默认不保存全量工具返回或建立案例索引，精选案例另行整理入仓库。
 
