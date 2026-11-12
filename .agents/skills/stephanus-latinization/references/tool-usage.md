@@ -1,8 +1,49 @@
 # 工具与运行指南
 
-首次需要调用查询时读取。七个只读 MCP 工具和 CLI 都使用现有 Service，不增加独立命名服务。
+首次需要调用查询时读取。七个只读 MCP 工具和 CLI 都使用现有 Service，不增加独立命名服务。ChatGPT 通过 Wan MCP 转发，Codex 按原有本地 MCP／CLI 流程运行。
 
-## 从项目接入
+## ChatGPT 对话环境：通过 Wan MCP 转发（优先）
+
+仅在用户**主动点名调用 Stephanus 名称转译 Skill** 时使用下述路径。普通翻译、音译、取名或拉丁语问题不自行进入此流程。运行数据已在腾讯云 `/opt/stephanus` 部署；ChatGPT 无需安装 Python 依赖或下载数据库，默认也不在服务器执行 shell。
+
+固定定位：
+- Wan MCP 服务器：`server="tencent-sv"`；
+- 下游 MCP 别名：`mcp="stephanus"`；
+- Wan 转发函数：`mcp_tools_list` 与 `mcp_tool_call`；
+- `mcp_tool_call.tool`：七个已注册的只读 `stephanus_*` 工具之一；
+- `mcp_tool_call.arguments`：按下游工具 schema 传入 JSON 对象，不能把 `query` 等业务参数放到 Wan 调用的顶层。
+
+在当前 ChatGPT Code Mode 中，先通过 `ALL_TOOLS` 确认 Wan MCP 工具可用，再按实际名称调用。当前已验证的格式如下：
+
+~~~javascript
+// 第一次查询时列出下游工具
+const catalog = await tools.mcp__wan_server_mcp__mcp_tools_list({
+  server: "tencent-sv",
+  mcp: "stephanus"
+});
+text(catalog);
+
+// Wan MCP -> 腾讯云 SSH -> Stephanus MCP
+const response = await tools.mcp__wan_server_mcp__mcp_tool_call({
+  server: "tencent-sv",
+  mcp: "stephanus",
+  tool: "stephanus_search_names",
+  arguments: {query: "古明地", language: "ja", limit: 5}
+});
+const envelope = typeof response.text === "string" ? JSON.parse(response.text) : response;
+const payload = envelope.result?.structured_content
+  ?? envelope.result?.content?.find(item => item.type === "text")?.text
+  ?? envelope.result;
+text(typeof payload === "string" ? JSON.parse(payload) : payload);
+~~~
+
+实际宿主中工具名可能由连接器重新映射；以上 `mcp__wan_server_mcp__*` 是当前已验证的名称。若名称未出现，应先通过工具发现核对实际可用的 Wan MCP `mcp_tools_list`／`mcp_tool_call` 及参数，避免构造不存在的函数。响应优先读取 `result.structured_content`，其次解析 `result.content` 中的文本 JSON；若外层 `text` 是 JSON 字符串，需先解析。检查 `is_error`。
+
+**边界与失败处理：** 下游只调用本指南列出的七个只读接口，不使用 Wan 的 `shell_run`、文件管理或配置修改功能代替查询。Wan 连接缺失、MCP 别名不存在、SSH 或数据库失败时，明确说明无法实时检索；不得伪造词典条目、来源 ID 或已完成的查询，也不自动下载运行包。空命中按材料检索规则继续，不切换本地 CLI 重复相同查询。
+
+**案例留存：** ChatGPT 生成案例 Markdown 供用户保存；只有用户另行明确要求写入服务器或 GitHub 时，才用对应工具处理写入。Codex 的 `data/examples/` 本地留存流程保留。
+
+## Codex／本地项目接入
 
 skill 位于项目根的 .agents/skills/stephanus-latinization/，从该目录向上三层取得项目根目录。先识别宿主暴露的 Stephanus 工具；命名空间前缀可以不同，以下表中的实际功能名为准。
 
